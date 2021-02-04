@@ -137,6 +137,12 @@ public class Converter implements Callable<Void> {
   private volatile int tileHeight = 1024;
 
   @Option(
+          names = {"-z", "--tile_depth"},
+          description = "Maximum tile depth to read (default: ${DEFAULT-VALUE})"
+  )
+  private volatile int tileDepth = 1;
+
+  @Option(
     names = {"--log-level", "--debug"},
     arity = "0..1",
     description = "Change logging level; valid values are " +
@@ -204,6 +210,12 @@ public class Converter implements Callable<Void> {
                   "[Can break compatibility with raw2ometiff]"
   )
   private volatile FileType fileType = FileType.n5;
+
+  @Option(
+          names = "--nested",
+          description = "Whether to use '/' as the chunk path separator (false by default)"
+  )
+  private volatile boolean nested = false;
 
   @Option(
           names = "--pyramid-name",
